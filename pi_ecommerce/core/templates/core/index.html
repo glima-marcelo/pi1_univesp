@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+{% for item in items %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'detail' item.slug %}">{{ item.name_prod }}</a></h5>
+            <p class="card-text">{{ item.name_long | truncatechars:100 }}</p>
+            <a href="#" class="card-link">{{ item.code_charact_fk }}</a>
+            <a href="admin/core/name_prod/{{ item.id }}/change/" class="card-link">Editar</a>
+            <a href="admin/core/name_prod/{{ item.id }}/delete/" class="card-link">Deletar</a>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}
